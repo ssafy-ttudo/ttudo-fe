@@ -1,7 +1,8 @@
-# ttudo-fe
+# React + Vite
 
-ttudo - 사이드프로젝트(프론트)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-- 멤버 : 권인승, 김지원, 박보성
+Currently, two official plugins are available:
 
-화이팅 !
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
