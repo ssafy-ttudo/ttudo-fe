@@ -1,0 +1,77 @@
+* 헤더 스타일 */
+.profile-header {
+  padding: 40px 0 0 20px;
+}
+
+.profile-header img {
+  height: 50px;
+  width: 130px;
+}
+
+/* 이미지 영역 */
+.profile-image {
+  width: 250px;
+  height: 250px;
+  padding-left: 100px;
+  flex-shrink: 0;
+  margin-right: 40px;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.profilecontent-content {
+  background-color: #EAF3FF;
+  height: 150px;
+  width: 800px;
+  position: relative;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.profilecontent-name {
+  color: #296088;
+  font-weight: bold;
+  font-family: 'NanumGothic';
+  padding-bottom: 15px;
+  font-size: 30px;
+}
+
+.profilecontent-title {
+  color: #296088;
+  font-family: 'NanumGothic';
+  padding: 15px 30px;
+  font-size: 20px;
+}
+
+.profilecontent-con {
+  color: #296088;
+  font-weight: bold;
+  font-family: 'NanumGothic';
+  padding: 5px 30px;
+  font-size: 20px;
+}
+
+.logout-button {
+  position: absolute;
+  width: 100px;
+  bottom: 15px;
+  right: 15px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #296088;
+  color: white;
+  cursor: pointer;
+  font-family: 'NanumGothic';
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: #1a4d6d;
+}

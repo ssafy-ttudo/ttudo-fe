@@ -8,12 +8,14 @@ import ProfileContent from '../Components/ProfileContent.js';
 import data from '../Data/data.js'
 import DduduList from '../Components/Ddudulist.js';
 import LikeList from '../Components/LikeList.js';
-
+import Modal from '../Components/Modal.js';
+import { useState } from 'react';
 const userId ='김민지';
 
 
 function Mypage() {
   const userInfo = data.find(item => item.profile.nickname === userId);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     
     <div className='profile-contanier'>
@@ -27,6 +29,12 @@ function Mypage() {
       <DduduList userId={userId} data={data} />
         <LikeList />
       </div>
+      <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+      
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2>Modal Content</h2>
+        <p>This is the modal content</p>
+      </Modal>
     </div>
   );
 }

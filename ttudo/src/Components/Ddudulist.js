@@ -1,5 +1,6 @@
 import React from 'react';
 import Ddudu from './Ddudu';
+import '../CSS/DduduList.css';
 
 const DduduList = ({ userId, data }) => {
   // userId와 일치하는 사용자의 데이터 찾기

@@ -1,0 +1,102 @@
+/* 뚜두 리스트 영역 */
+.ddudulist-container {
+  padding-left: 100px;
+  padding-right: 30px;
+  width: 550px;
+}
+
+.ddudulist-title {
+  font-family: 'NanumGothic';
+  font-size: 25px;
+  font-weight: bold;
+  color: #296088;
+  padding-bottom: 20px;
+}
+
+.ddudulist-content {
+  height: 200px;
+  border-radius: 20px;
+  background-color: white;
+  width: 550px;
+  overflow-y: auto; 
+}
+
+
+
+
+
+
+/* 스크롤바 스타일링 */
+.ddudulist-content::-webkit-scrollbar,
+.likelist-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ddudulist-content::-webkit-scrollbar-track,
+.likelist-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.ddudulist-content::-webkit-scrollbar-thumb,
+.likelist-content::-webkit-scrollbar-thumb {
+  background: #296088;
+  border-radius: 4px;
+}
+
+.ddudulist-content::-webkit-scrollbar-thumb:hover,
+.likelist-content::-webkit-scrollbar-thumb:hover {
+  background: #1a4d6d;
+}
+
+/* Ddudu 컴포넌트 스타일 */
+.ddudu {
+  background-color: #EAF3FF;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.ddudu:last-child {
+  margin-bottom: 0;
+}
+
+.ddudu:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(41, 96, 136, 0.1);
+}
+
+.ddudu-title {
+  color: #296088;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-family: 'NanumGothic', sans-serif;
+}
+
+.ddudu-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ddudu-date {
+  color: #666;
+  font-size: 14px;
+  font-family: 'NanumGothic', sans-serif;
+}
+
+.ddudu-status {
+  background-color: #296088;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'NanumGothic', sans-serif;
+}
+
+.ddudu-status:not(.completed) {
+  background-color: #8BB7D9;
+}
