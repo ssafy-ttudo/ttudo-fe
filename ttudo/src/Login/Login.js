@@ -3,7 +3,7 @@ import './Loginstyle.css';
 import loginImage from '../image/logo.png';
 import naver from '../image/naver.png';
 import kakao from '../image/kakao.png';
-import bubble from '../image/bubble.png'
+// import bubble from '../image/bubble.png'
 import substract from '../image/Subtract.png'
 const CLINT_ID = '8fa7861607ff5475f3002474de5bf575';
 const KAKAO_REDIRECT_URI = 'http://localhost:3000/kakao';

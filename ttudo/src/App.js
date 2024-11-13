@@ -3,6 +3,7 @@ import './App.css';
 import Login from './Login/Login';
 import Kakao from './Login/Kakao';
 import Naver from './Login/Naver';
+import Mypage from './Mypage/Mypage';
 function App() {
   return (
     <Router>
@@ -11,6 +12,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/kakao" element={<Kakao />} />
           <Route path="/naver" element={<Naver />} />
+          <Route path="/mypage" element ={<Mypage/>} />
         </Routes>
     </Router>
   );
