@@ -1,0 +1,22 @@
+/* 뚜두 리스트 영역 */
+.likelist-container {
+  padding-left: 100px;
+  padding-right: 30px;
+  width: 550px;
+}
+
+.likelist-title {
+  font-family: 'NanumGothic';
+  font-size: 25px;
+  font-weight: bold;
+  color: #296088;
+  padding-bottom: 20px;
+}
+
+.likelist-content {
+  height: 200px;
+  border-radius: 20px;
+  background-color: white;
+  width: 550px;
+  overflow-y: auto;
+}

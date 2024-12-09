@@ -1,5 +1,6 @@
 // ProfileComponents.jsx
 import React from 'react';
+import '../CSS/Profilecontent.css';
 
 export const ProfileContent = ({ name, date, email, count }) => {
   return (
