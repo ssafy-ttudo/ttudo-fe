@@ -11,18 +11,19 @@ body {
 
 /* 헤더 스타일 */
 .profile-header {
-  padding: 40px 0 0 20px;
+  padding: 40px 0 0 20px ;
 }
 
 .profile-header img {
   height: 50px;
-  width: 130px;
+  width: 130px; 
 }
+
 
 /* 이미지 영역 */
 .profile-image {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   padding-left: 100px;
   flex-shrink: 0;
   margin-right: 40px;
@@ -45,56 +46,112 @@ body {
   gap: 15px;
 }
 
-.profilecontent-content {
+.profilecontent-name {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'NanumGothic';
+  color: #296088;
+  padding-bottom: 15px;
+}
+.profilecontent-content{
   background-color: #EAF3FF;
   height: 150px;
   width: 800px;
-  position: relative;
-  padding: 15px;
-  border-radius: 20px;
 }
-
-.profilecontent-name {
-  color: #296088;
-  font-weight: bold;
-  font-family: 'NanumGothic';
-  padding-bottom: 15px;
-  font-size: 30px;
-}
-
-.profilecontent-title {
+.profilecontent-date{
   color: #296088;
   font-family: 'NanumGothic';
-  padding: 15px 30px;
+  padding: 25px 30px 0px 30px; 
   font-size: 20px;
 }
-
-.profilecontent-con {
+.profilecontent-id{
+  color: #296088;
+  font-family: 'NanumGothic';
+  padding: 15px 30px 15px 30px ;
+  font-size: 20px;
+}
+.profilecontent-count{
+  color: #296088;
+  font-family: 'NanumGothic';
+  padding:  0px 30px 25px 30px;
+  font-size: 20px;
+}
+.profilecontent-con{
   color: #296088;
   font-weight: bold;
   font-family: 'NanumGothic';
   padding: 5px 30px;
   font-size: 20px;
 }
+.ddudulist-container {
+  padding: 20px;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+}
 
-.logout-button {
-  position: absolute;
-  width: 100px;
-  bottom: 15px;
-  right: 15px;
-  padding: 8px 16px;
+.ddudulist-title {
+  font-family: 'NanumGothic', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #296088;
+  margin-bottom: 20px;
+}
+
+.ddudulist-content {
+  border-radius: 20px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(41, 96, 136, 0.1);
+}
+
+.ddudu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ddudu-table th,
+.ddudu-table td {
+  text-align: center;
+  padding: 12px;
+}
+
+.ddudu-table th {
+  background-color: #EAF3FF;
+  color: #296088;
+  font-size: 16px;
+}
+
+.ddudu-table tr:nth-child(even) {
+  background-color: #F9FBFF;
+}
+
+.ddudu-table tr:hover {
+  background-color: #EAF3FF;
+}
+
+.category {
+  font-weight: bold;
+}
+
+.category.운동 {
+  color: #00A676; /* 운동 카테고리 색상 */
+}
+
+.category.생활루틴 {
+  color: #F5A623; /* 생활루틴 카테고리 색상 */
+}
+
+.category.음식 {
+  color: #D0021B; /* 음식 카테고리 색상 */
+}
+
+.view-button {
+  background-color: transparent;
   border: none;
-  border-radius: 4px;
-  background-color: #296088;
-  color: white;
   cursor: pointer;
-  font-family: 'NanumGothic';
-  font-size: 14px;
 }
 
-.logout-button:hover {
-  background-color: #1a4d6d;
-}
 
 /* 두 번째 콘텐츠 영역 */
 .profile-content2 {
@@ -102,105 +159,51 @@ body {
   padding-top: 30px;
 }
 
-/* 뚜두 리스트 영역 */
-.ddudulist-container {
-  padding-left: 100px;
-  padding-right: 30px;
-  width: 500px;
-}
-
-.ddudulist-title {
-  font-family: 'NanumGothic';
-  font-size: 25px;
-  font-weight: bold;
-  color: #296088;
-  padding-bottom: 20px;
-}
-
-.ddudulist-content {
-  height: 200px;
-  border-radius: 20px;
-  background-color: white;
-  width: 500px;
-  overflow-y: auto;
-}
-
-
-
-
-
-
-/* 스크롤바 스타일링 */
-.ddudulist-content::-webkit-scrollbar,
-.likelist-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.ddudulist-content::-webkit-scrollbar-track,
-.likelist-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-.ddudulist-content::-webkit-scrollbar-thumb,
-.likelist-content::-webkit-scrollbar-thumb {
-  background: #296088;
-  border-radius: 4px;
-}
-
-.ddudulist-content::-webkit-scrollbar-thumb:hover,
-.likelist-content::-webkit-scrollbar-thumb:hover {
-  background: #1a4d6d;
-}
-
-/* Ddudu 컴포넌트 스타일 */
-.ddudu {
-  background-color: #EAF3FF;
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin-bottom: 10px;
-  transition: all 0.2s ease;
-}
-
-.ddudu:last-child {
-  margin-bottom: 0;
-}
-
-.ddudu:hover {
-  transform: translateX(5px);
-  box-shadow: 0 2px 8px rgba(41, 96, 136, 0.1);
-}
-
-.ddudu-title {
-  color: #296088;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  font-family: 'NanumGothic', sans-serif;
-}
-
-.ddudu-info {
+.profile-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* 양쪽 끝으로 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 10px 20px; /* 상하좌우 여백 */
 }
 
-.ddudu-date {
-  color: #666;
+.button-group {
+  display: flex; /* 버튼들을 가로로 배치 */
+  height: 47px;
+  width: 270px;
+  border: 1px solid #296088; /* 외곽 테두리 */
+  border-radius: 10px;
+  overflow: hidden; /* 내부 버튼의 둥근 모서리를 유지 */
+}
+
+.button {
+  margin: 0;
+  flex: 1; /* 버튼 크기를 동일하게 설정 */
+  background-color: white;
+  color: #296088;
+  border: none; /* 내부 버튼 테두리 제거 */
   font-size: 14px;
-  font-family: 'NanumGothic', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.ddudu-status {
+.button:hover {
   background-color: #296088;
   color: white;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 12px;
-  font-weight: 500;
-  font-family: 'NanumGothic', sans-serif;
 }
 
-.ddudu-status:not(.completed) {
-  background-color: #8BB7D9;
+.home {
+  position: relative; /* 내부 요소를 기준으로 위치 설정 */
+}
+
+.home::after {
+  content: ''; /* 가상 요소 추가 */
+  position: absolute;
+  top: 10%; /* 위쪽 여백 조정 */
+  right: 0; /* 오른쪽에 위치 */
+  height: 80%; /* 선의 높이 설정 */
+  width: 1px; /* 선의 두께 설정 */
+  background-color: #296088; /* 선 색상 */
+}
+
+.logout {
 }
