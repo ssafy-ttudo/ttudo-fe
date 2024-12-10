@@ -1,5 +1,4 @@
 import React from 'react';
-import './Loginstyle.css';
 import loginImage from '../image/logo.png';
 import naver from '../image/naver.png';
 import kakao from '../image/kakao.png';

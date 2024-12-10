@@ -1,13 +1,15 @@
 import React from 'react';
+import '../CSS/DduduList.css';
+import viewimg from '../image/Union.png';
 
-const DduduList = ({ data }) => {
+const DduduList = ({ data = [] }) => {
   return (
     <div className="ddudulist-container">
       <div className="ddudulist-title">마이 뚜두 리스트</div>
       <div className="ddudulist-content">
         <table className="ddudu-table">
           <thead>
-            <tr>
+            <tr className="ddudulist-col">
               <th>카테고리</th>
               <th>뚜두 제목</th>
               <th>좋아요 수</th>
@@ -18,14 +20,27 @@ const DduduList = ({ data }) => {
           </thead>
           <tbody>
             {data.map((item, index) => (
-              <tr key={index}>
-                <td> category</td>
-                {/* <td className={`category ${item.category.toLowerCase()}`}>{item.category}</td> */}
+              <tr className="ddudulist-row" key={index}>
+                {/* 카테고리 */}
+                <td className={`category ${item.category?.toLowerCase() || 'default'}`}>
+                  {item.category || '기본 카테고리'}
+                </td>
+                {/* 뚜두 제목 */}
                 <td>{item.title}</td>
-                <td>{item.likes}회</td>
-                <td>{item.achievers}명</td>
-                <td>{item.completed ? 'Y' : 'N'}</td>
-                <td><button className="view-button">🔍</button></td>
+                {/* 좋아요 수 */}
+                <td>{item.likes || 0}회</td>
+                {/* 달성자 수 */}
+                <td>{item.achievers || 0}명</td>
+                {/* 달성 여부 */}
+                <td className={`status ${item.completed ? 'completed' : 'not-completed'}`}>
+                  {item.completed ? 'Y' : 'N'}
+                </td>
+                {/* 보기 버튼 */}
+                <td>
+                  <button className="ddudu-view-button">
+                    <img src={viewimg} alt="보기" className="view-img" />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
