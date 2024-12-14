@@ -50,6 +50,6 @@ body {
 
 .profile-userlist{
   display: flex;
-  width: 1240px;
+  width: 1200px;
   justify-content: space-between;
 }

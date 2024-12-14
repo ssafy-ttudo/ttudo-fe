@@ -1,5 +1,5 @@
 .userlist-container {
-  padding: 20px;
+  padding: 20px 0px;
   width: 600px;
   height: fit-content;
 }
@@ -14,6 +14,7 @@
 .userlist-title {
   font-family: 'NanumGothic';
   font-size: 25px;
+  padding-left: 15px;
   font-weight: bold;
   color: #296088;
 }

@@ -1,5 +1,5 @@
 .likelist-container {
-    padding: 20px;
+    padding: 20px 0px;
     width: 580px;
     height: fit-content;
 }
@@ -16,6 +16,7 @@
     font-family: 'NanumGothic';
     font-size: 25px;
     font-weight: bold;
+    padding-left: 15px;
     color: #296088;
 }
 
