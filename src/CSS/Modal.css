@@ -15,7 +15,7 @@
   background-color: white;
   border-radius: 20px;
   width: 1200px;
-  height: 900px; /* 높이 증가 */
+  height: 500px; /* 높이 증가 */
   overflow: hidden;
   display: flex;
   flex-direction: column;

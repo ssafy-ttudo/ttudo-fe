@@ -1,24 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../CSS/MypageStyle.css';
 import logo from '../image/logo.png';
 import ProfileHeader from '../Components/Profile-Header.js';
 import ProfileImage from '../Components/ProfileImage.js';
 import ProfileContent from '../Components/ProfileContent.js';
-import profileData from '../Data/data.js';
 import DduduList from '../Components/Ddudulist.js';
 import UserList from '../Components/Userlist.js';
 import NavButtons from '../Components/NavButtons';
 import LikeList from '../Components/Likelist.js';
 import Modal from '../Components/Modal.js';
-import { userData } from '../Data/user.js'; // 더미 데이터 import
-import { useState } from 'react';
-
-const userId = '김민지';
 
 function Mypage() {
-  const userInfo = profileData.find(item => item.profile.nickname === userId);
+  const [userInfo, setUserInfo] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [followingUsers, setFollowingUsers] = useState(userData); // 더미 데이터 상태 관리
+  const [followingUsers, setFollowingUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/mypage', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          },
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+        
+        const data = await response.json();
+        setUserInfo(data);
+        setFollowingUsers(data.bookmarked_users || []);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleHomeClick = () => {
     console.log('홈으로 이동');
@@ -37,6 +59,10 @@ function Mypage() {
       )
     );
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   if (!userInfo) {
     return <div>사용자 정보를 찾을 수 없습니다.</div>;
@@ -62,7 +88,7 @@ function Mypage() {
       </div>
       <div className="profile-userlist">
         <UserList onOpenModal={() => setIsModalOpen(true)} />
-        <LikeList />
+        <LikeList data={userInfo.liked_todos} />
       </div>
       <Modal 
         isOpen={isModalOpen} 
