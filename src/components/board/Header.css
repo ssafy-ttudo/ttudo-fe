@@ -1,0 +1,21 @@
+/* Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.header img {
+    width: 156px;
+    height: 60px;
+    margin-left: 38px;
+    margin-top: 36px;
+}
+
+.header button {
+    width: 140px;
+    height: 40px;
+    margin-top: 44px;
+    margin-right: 43px;
+}
