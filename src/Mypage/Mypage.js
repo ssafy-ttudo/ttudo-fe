@@ -19,7 +19,7 @@ function Mypage() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/mypage', {
+        const response = await fetch('http://127.0.0.1:8000/mypage/', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
           },
@@ -87,7 +87,10 @@ function Mypage() {
         <DduduList data={userInfo.my_todos} />
       </div>
       <div className="profile-userlist">
-        <UserList onOpenModal={() => setIsModalOpen(true)} />
+      <UserList onOpenModal={(users) => {
+    setFollowingUsers(users);
+    setIsModalOpen(true);
+}} />
         <LikeList data={userInfo.liked_todos} />
       </div>
       <Modal 

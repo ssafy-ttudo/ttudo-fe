@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../CSS/UserList.css';
 
 const UserList = ({ onOpenModal }) => {
-    const users = [
-        { id: 1, name: '박보성', profileImg: '' },
-        { id: 2, name: '김찬호', profileImg: '' },
-        { id: 3, name: '사용자3', profileImg: '' },
-        { id: 4, name: '사용자4', profileImg: '' },
-        { id: 5, name: '사용자5', profileImg: '' }
-    ];
+    const [users, setUsers] = useState([]);
+
+    const handleAddUserClick = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/users/', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch users');
+            }
+
+            const data = await response.json();
+            setUsers(data);
+            onOpenModal(data);
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
+    };
 
     return (
         <div className='userlist-container'>
             <div className='userlist-header'>
                 <span className='userlist-title'>즐겨찾기 뚜두 유저 리스트</span>
-                <button className='add-user-button' onClick={onOpenModal}>
+                <button className='add-user-button' onClick={handleAddUserClick}>
                     유저 추가
                 </button>
             </div>
@@ -24,7 +39,7 @@ const UserList = ({ onOpenModal }) => {
                         <div key={user.id} className='user-item'>
                             <div className='user-info'>
                                 <div className='profile-circle'></div>
-                                <span className='user-name'>{user.name}</span>
+                                <span className='user-name'>{user.nickname}</span>
                             </div>
                             <button className='view-button'>View</button>
                         </div>
