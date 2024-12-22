@@ -1,21 +1,88 @@
-/* Header.css */
 .header {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    height: 160px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
 }
 
-.header img {
-    width: 156px;
+.profile-container {
+    width: 280px;
+    height: 80px;
+    background: #FFFFFF;
+    border: 2px solid #296088;
+    box-shadow: 0px 2px 4px #6BA2CC;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.profile-image {
+    position: relative;
+    width: 60px;
     height: 60px;
-    margin-left: 38px;
-    margin-top: 36px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(245, 246, 255, 0.823529) 79.5%, rgba(131, 176, 238, 0.823529) 100%);
 }
 
-.header button {
-    width: 140px;
-    height: 40px;
-    margin-top: 44px;
-    margin-right: 43px;
+.user-info {
+    margin-left: 20px;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.home-icon {
+    width: 14.37px;
+    height: 14.37px;
+    background-color: #fff;
+}
+
+.user-name-welcome {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    gap: 5px;
+}
+
+.user-name {
+    font-family: 'NanumGothicOTF';
+    font-weight: 600;
+    font-size: 18px;
+    color: #296088;
+    background-color: #fff;
+}
+
+.welcome-text {
+    font-family: 'NanumGothicOTF';
+    font-weight: 400;
+    font-size: 18px;
+    color: #296088;
+    background-color: #fff;
+}
+
+.mypage-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'NanumGothicOTF';
+    font-weight: 600;
+    font-size: 18px;
+    color: #296088;
+    background-color: #fff;
+}
+
+.mypage-link > span {
+    background-color: #fff;
+}
+
+.mypage-icon {
+    width: 14.37px;
+    height: 14.37px;
+    background: #fff;
 }

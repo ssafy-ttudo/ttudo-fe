@@ -1,0 +1,58 @@
+/* DetailHeader.css */
+.detail-header-container {
+    width: 90%;
+    padding: 20px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.back-button {
+    padding: 10px 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px #6BA2CC;
+    border-radius: 53px;
+    border: none;
+    font-family: 'NanumGothicOTF';
+    font-weight: 600;
+    font-size: 24px;
+    color: #296088;
+    cursor: pointer;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 2px solid #296088;
+    box-shadow: 0px 2px 4px #6BA2CC;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.mypage-button, .logout-button {
+    background: none;
+    border: none;
+    font-family: 'NanumGothicOTF';
+    font-size: 20px;
+    color: #296088;
+    cursor: pointer;
+    padding: 0 20px;
+}
+
+.mypage-button {
+    font-weight: 600;
+}
+
+.logout-button {
+    font-weight: 400;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 30px;
+    background: #296088;
+    margin: 0 10px;
+}
