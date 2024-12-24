@@ -1,0 +1,53 @@
+.login-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-subtitle {
+  font-family: "NanumGothicOTF", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #296088;
+  text-shadow: 0px 4px 6.73px rgba(255, 255, 255, 0.8);
+  margin-bottom: 10px;
+}
+
+.social-login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 5px solid #296088;
+  box-shadow: 0px 4px 4px rgba(126, 172, 238, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px rgba(126, 172, 238, 0.7);
+}
+
+.login-text {
+  font-family: "NanumGothicOTF";
+  font-weight: 800;
+  font-size: 32px;
+  color: #296088;
+}
+
+@media (max-width: 768px) {
+  .social-login-button {
+    width: 160px;
+    height: 64px;
+    border-radius: 15px;
+  }
+
+  .login-text {
+    font-size: 24px;
+  }
+}

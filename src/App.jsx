@@ -1,13 +1,23 @@
-import { useState } from "react"
-import "./App.css"
-import Board from "./components/board/board"
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import LoginPage from "./pages/LoginPage";
+import KakaoLogin from "./components/KakaoLogin"
+import NaverLogin from "./components/NaverLogin"
+import MyPage from "./pages/MyPage"
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Board />
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/kakao" element={<KakaoLogin />} />
+        <Route path="/naver" element={<NaverLogin />} />
+        <Route path="/mypage" element={<MyPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
