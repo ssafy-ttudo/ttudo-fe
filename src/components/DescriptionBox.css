@@ -1,0 +1,102 @@
+.description-box {
+  width: 100%;
+  max-width: 800px;
+  min-width: 400px;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  font-size: 20px;
+  white-space: pre-line;
+  font-weight: bold;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.description-envelope-image {
+  width: auto;
+  height: 150px;
+  object-fit: contain;
+  max-width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.description-box.default {
+  background-color: rgba(41, 96, 136, 0.05);
+  color: #296088;
+}
+
+.description-box.blue {
+  background-color: rgba(81, 169, 232, 0.1);
+  color: #51A9E8;
+}
+
+.description-box.green {
+  background-color: rgba(47, 204, 107, 0.1);
+  color: #2FCC6B;
+}
+
+.description-box.red {
+  background-color: rgba(254, 99, 100, 0.1);
+  color: #FE6364;
+}
+
+.description-box.yellow {
+  background-color: rgba(217, 181, 36, 0.1);
+  color: #D9B524;
+}
+
+.description-box.purple {
+  background-color: rgba(197, 99, 255, 0.1);
+  color: #C563FF;
+}
+
+.description-box.gray {
+  background-color: rgba(145, 146, 148, 0.1);
+  color: #919294;
+}
+
+.description-text {
+  margin: 0;
+  text-align: center;
+  line-height: 2; /* 줄간격 */
+  font-size: 20px;
+}
+
+@media (min-width: 1024px) {
+  .main-page-container {
+    display: grid; /* grid를 사용해 균형 유지 */
+    grid-template-columns: auto minmax(600px, auto) auto; /* 중앙에 DescriptionBox 배치 */
+    align-items: center; /* 세로 정렬 */
+    gap: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    min-height: calc(100vh - var(--header-height)); /* 헤더 높이를 제외한 영역 계산 */
+  }
+} 
+
+@media (max-width: 768px) {
+  .description-box {
+    width: 90%;
+    min-width: 350px;
+    padding: 15px 20px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .description-box {
+    min-width: 300px;
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+
+  .description-text {
+    line-height: 1.6;
+  }
+}
