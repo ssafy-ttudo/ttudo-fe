@@ -15,9 +15,9 @@ const Naver = () => {
       const state = getStateFromURL();
       const storedState = localStorage.getItem('naver_state');
 
-      console.log("Code from URL:", code);
-      console.log("State from URL:", state);
-      console.log("Stored State:", storedState);
+      // console.log("Code from URL:", code);
+      // console.log("State from URL:", state);
+      // console.log("Stored State:", storedState);
 
       if (!code || !state) {
         console.log("인증 코드 또는 상태값이 없습니다");
@@ -25,7 +25,7 @@ const Naver = () => {
       }
 
       if (state !== storedState) {
-        console.error("State 값 불일치. CSRF 공격 가능성 있음!");
+        console.error("State 값 불일치");
         return;
       }
 
