@@ -16,7 +16,7 @@ const App = () => {
       <div>
         <Routes>
           {/* 메인/로그인 관련 라우트 */}
-          <Route path="/" element={<Board />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/kakao" element={<KakaoLogin />} />
           <Route path="/naver" element={<NaverLogin />} />

@@ -1,0 +1,141 @@
+.likelist-container {
+    padding: 20px 0px;
+    width: 580px;
+    height: fit-content;
+}
+
+.likelist-header {
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.likelist-title {
+    font-family: 'NanumGothic';
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 15px;
+    color: #296088;
+}
+
+.likelist-content {
+    border-radius: 20px;
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    box-shadow: 5px rgba(41, 96, 136, 0.1);
+    border: 5px solid #EAF3FF;
+}
+
+.likelist-user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.likelist-user-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    height: 70px;
+    width: 500px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    border: 1px solid #EAF3FF;
+    transition: all 0.2s ease-in-out;
+}
+
+.likelist-user-item:hover {
+    background-color: #EAF3FF;
+}
+
+.likelist-user-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.likelist-profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #E0E0E0;
+}
+
+.likelist-user-details {
+    display: flex;
+    padding-left: 30px;
+    justify-content: space-between;
+    width: 400px;
+    gap: 5px;
+}
+
+.likelist-user-name {
+    font-size: 25px;
+    font-family: 'NanumGothicOTF';
+    font-weight: bold;
+    color: #333;
+}
+
+.likelist-user-todo {
+    font-family: 'NanumGothicOTF';
+    font-size: 25px;
+    color: #666;
+}
+
+/* 카테고리별 스타일링 */
+.likelist-user-item.운동 {
+    background-color: rgba(0, 166, 118, 0.1);
+    border: 1px solid #00A676;
+}
+
+.likelist-user-item.생활루틴 {
+    background-color: rgba(245, 166, 35, 0.1);
+    border: 1px solid #F5A623;
+}
+
+.likelist-user-name.운동 {
+    color: #00A676;
+}
+
+.likelist-user-name.생활루틴 {
+    color: #F5A623;
+}
+
+.likelist-user-todo.운동 {
+    color: #00A676;
+}
+
+.likelist-user-todo.생활루틴 {
+    color: #F5A623;
+}
+
+/* hover 효과 수정 */
+.likelist-user-item.운동:hover {
+    background-color: rgba(0, 166, 118, 0.2);
+}
+
+.likelist-user-item.생활루틴:hover {
+    background-color: rgba(245, 166, 35, 0.2);
+}
+
+/* 스크롤바 스타일링 */
+.likelist-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.likelist-content::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.likelist-content::-webkit-scrollbar-thumb {
+    background-color: #5AADE9;
+    border-radius: 10px;
+}
+
+.likelist-content::-webkit-scrollbar-thumb:hover {
+    background-color: #296088;
+}

@@ -1,0 +1,161 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 20px;
+  width: 1200px;
+  height: 500px; /* 높이 증가 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header-image {
+  background-color: #EAF3FF;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  flex-shrink: 0; /* 헤더 크기 고정 */
+}
+
+.modal-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px;
+}
+
+.control-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.close-dot {
+  background-color: red;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-x {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.close-dot:hover {
+  background-color: #db1f1f;
+}
+
+.modal-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-users-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+  padding-bottom: 20px; /* 하단 여백 추가 */
+}
+
+/* 스크롤바 스타일링 */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #5AADE9;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #296088;
+}
+
+/* 스크롤 시 그리드 레이아웃 유지 */
+.modal-users-grid {
+  min-height: min-content;
+  grid-auto-rows: min-content;
+}
+
+.modal-user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 140px;
+}
+
+.modal-profile-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #E0E0E0;
+  overflow: hidden;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-user-name {
+  font-size: 30px;
+  font-family: 'NanumGothicOTF';
+  font-weight: bold;
+  color: #296088;
+}
+
+.follow-button {
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.follow-button.follow {
+  background-color: #fff;
+  color: #296088;
+  border: 1px solid #296088;
+}
+
+.follow-button.unfollow {
+  background-color: #296088;
+  color: #fff;
+  border: none;
+}
+
+.follow-button:hover {
+  opacity: 0.9;
+}

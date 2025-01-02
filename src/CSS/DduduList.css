@@ -1,0 +1,127 @@
+.ddudulist-container {
+  width: 100%;
+  padding:  50px 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ddudulist-title {
+  font-family: 'NanumGothic', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #296088;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.ddudulist-content {
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(41, 96, 136, 0.1);
+
+  /* 스크롤 영역 설정 */
+  max-height: 200px; /* 최대 높이 제한 */
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+
+  /* 테두리 색상 추가 */
+  border: 2px solid #EAF3FF; /* 테두리 색상 설정 */
+}
+
+/* 테이블 스타일 */
+.ddudu-table {
+  width: 100%;
+  border-collapse: separate; /* 테두리 분리 */
+  border-spacing: 0px 15px; /* 행 간격 추가 */
+}
+
+.ddudu-table th {
+  font-family: 'NanumGothicOTF', sans-serif;
+  color: #5AADE9;
+  font-size: 20px;
+  text-align: center;
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+
+.ddudu-table td {
+  text-align: center;
+  font-family:'NanumGothicOTF';
+  font-weight: bold;
+  color: #296088;
+  padding: 0px;
+}
+
+.ddudulist-row {
+  margin-bottom: 10px; /* 행 간격 추가 */
+  height: 40px;
+  padding: 10px; /* 내부 여백 */
+  box-shadow: 0px 4px 10px rgba(41, 96, 136, 0.1); /* 그림자 효과 */
+  border-radius: 20px; /* 둥근 모서리 */
+}
+.ddudulist-row:hover {
+  background-color: #EAF3FF; /* 호버 시 배경색 */
+}
+/* 첫 번째 셀의 둥근 모서리 설정 */
+.ddudulist-row td:first-child {
+  border-top-left-radius: 15px; /* 좌상단 둥글게 */
+  border-bottom-left-radius: 15px; /* 좌하단 둥글게 */
+}
+
+/* 마지막 셀의 둥근 모서리 설정 */
+.ddudulist-row td:last-child {
+  border-top-right-radius: 15px; /* 우상단 둥글게 */
+  border-bottom-right-radius: 15px; /* 우하단 둥글게 */
+}
+
+
+/* 스크롤바 스타일링 */
+.ddudulist-content::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
+.ddudulist-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* 스크롤바 트랙 배경색 */
+}
+
+.ddudulist-content::-webkit-scrollbar-thumb {
+  background-color: #56A0EF; /* 스크롤 핸들 색상 */
+  border-radius: 10px; /* 핸들 둥글게 */
+}
+
+.ddudulist-content::-webkit-scrollbar-thumb:hover {
+  background-color: #5AADE9; /* 호버 시 핸들 색상 */
+}
+
+.ddudu-view-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+}
+
+.ddudu-view-button:active,
+.ddudu-view-button:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+
+.view-img {
+  width: 20px; /* 이미지 크기 조정 */
+  vertical-align: middle;
+}
+
+/* 카테고리 색상 */
+.category.운동 {
+  color: #00A676; /* 운동 카테고리 색상 */
+}
+
+.category.생활루틴 {
+  color: #F5A623; /* 생활루틴 카테고리 색상 */
+}
+
+.category.음식 {
+  color: #D0021B; /* 음식 카테고리 색상 */
+}
