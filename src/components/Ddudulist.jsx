@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CSS/DduduList.css';
+import './DduduList.css';
 import viewimg from '../image/Union.png';
 
 const DduduList = ({ data = [] }) => {

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import '../CSS/Modal.css';
+import './Modal.css';
 
 const Modal = ({ isOpen, onClose, users = [] }) => {
     const modalRef = useRef();

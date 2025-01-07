@@ -1,12 +1,16 @@
-body {
-  background-color: #F5F6FF;
-}
-
 .profile-header {
   display: flex;
   justify-content: space-between; /* 양쪽 끝으로 배치 */
   align-items: center; /* 세로 중앙 정렬 */
   padding: 10px 20px; /* 상하좌우 여백 */
+}
+
+/* 전체 컨테이너 */
+.mypage-profile-container {
+  width: 100%;
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto;
+  background-color: #F5F6FF; /* 배경색 유지 */
 }
 
 .button-group {

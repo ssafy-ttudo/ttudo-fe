@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CSS/LikeList.css';
+import './LikeList.css';
 
 const Likelist = () => {
     const users = [

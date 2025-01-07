@@ -3,8 +3,8 @@ import React from 'react';
 
 export const ProfileImage = ({ img }) => {
   return (
-    <div className='profile-image'>
-      <img src={img} alt='프로필 이미지' className='profile-img'/>
+    <div className='mypage-profile-image'>
+      <img src={img} alt='프로필 이미지' className='mypage-profile-img'/>
     </div>
   );
 };

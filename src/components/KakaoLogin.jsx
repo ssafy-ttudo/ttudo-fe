@@ -36,11 +36,9 @@ const Kakao = () => {
         // console.log("저장 전 쿠키:", Cookies.get());
         
         // 쿠키 설정
-        const { access_token, refresh_token, user_id } = response.data;
-        Cookies.set("accessToken", access_token);
-        Cookies.set("refreshToken", refresh_token);
-        Cookies.set("userId", user_id);
-        
+        localStorage.setItem("accessToken",response.data.access)
+        localStorage.setItem("userId",response.data.user_id)
+
         const savedToken = Cookies.get("accessToken");
         if (!savedToken) {
           throw new Error("토큰 저장 실패");
@@ -49,7 +47,7 @@ const Kakao = () => {
         // console.log("저장 후 쿠키:", Cookies.get());
 
         // 마이페이지로 이동
-        navigate("/mypage");
+        navigate(`/mypage/${response.data.user_id}`);
       
       } catch (error) {
         console.error("에러 메시지:", error.message);

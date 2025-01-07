@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/kakao" element={<KakaoLogin />} />
           <Route path="/naver" element={<NaverLogin />} />
-          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mypage/:userId" element={<MyPage />} />
 
           {/* 게시판 관련 라우트 */}
           <Route path="/boards" element={<Board />} />

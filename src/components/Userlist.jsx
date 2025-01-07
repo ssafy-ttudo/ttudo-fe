@@ -1,28 +1,42 @@
 import React, { useState } from 'react';
-import '../CSS/UserList.css';
+import { useNavigate } from 'react-router-dom'; // React Router의 useNavigate 가져오기
+import './UserList.css';
 
 const UserList = ({ onOpenModal }) => {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([]); // 유저 리스트 상태
+    const [error, setError] = useState(null); // 에러 상태
+    const navigate = useNavigate(); // 페이지 이동을 위한 훅
 
     const handleAddUserClick = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/users/', {
+            const accessToken = localStorage.getItem('accessToken');
+            if (!accessToken) {
+                throw new Error('Access token is missing');
+            }
+    
+            const response = await fetch('http://127.0.0.1:8000/mypage/users/', { // 반드시 슬래시 포함
+                method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-                    'Content-Type': 'application/json'
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
                 },
             });
-
+    
             if (!response.ok) {
-                throw new Error('Failed to fetch users');
+                throw new Error(`Failed to fetch users: ${response.status}`);
             }
-
+    
             const data = await response.json();
-            setUsers(data);
-            onOpenModal(data);
+            setUsers(data); // 유저 리스트 업데이트
         } catch (error) {
             console.error('Error fetching users:', error);
+            setError('유저 정보를 불러오는 데 실패했습니다.');
         }
+    };
+
+    // View 버튼 클릭 시 호출되는 함수
+    const handleViewUserClick = (userid) => {
+        navigate(`/mypage/${userid}`); // 해당 userid로 페이지 이동
     };
 
     return (
@@ -34,6 +48,7 @@ const UserList = ({ onOpenModal }) => {
                 </button>
             </div>
             <div className='userlist-content'>
+                {error && <div className="error-message">{error}</div>} {/* 에러 메시지 표시 */}
                 <div className='user-list'>
                     {users.map(user => (
                         <div key={user.id} className='user-item'>
@@ -41,7 +56,13 @@ const UserList = ({ onOpenModal }) => {
                                 <div className='profile-circle'></div>
                                 <span className='user-name'>{user.nickname}</span>
                             </div>
-                            <button className='view-button'>View</button>
+                            {/* View 버튼 */}
+                            <button 
+                                className='view-button' 
+                                onClick={() => handleViewUserClick(user.id)}
+                            >
+                                View
+                            </button>
                         </div>
                     ))}
                 </div>

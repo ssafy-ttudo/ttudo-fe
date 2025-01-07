@@ -51,15 +51,15 @@ const Naver = () => {
 
         // 쿠키 확인
         // console.log("저장 전 쿠키:", Cookies.get());
-
+        console.log('response',response.data)
         // 쿠키 저장
         // const payload = JSON.parse(atob(response.data.access.split(".")[1]));
         // Cookies.set("accessToken", response.data.access, { expires: 1 });
         // Cookies.set("refreshToken", response.data.refresh, { expires: 30 });
         // Cookies.set("userId", payload.user_id, { expires: 1 });
-        Cookies.set("accessToken", response.data.access, { expires: 1 });
-        Cookies.set("refreshToken", response.data.refresh, { expires: 30 });
-        Cookies.set("userId", response.data.user_id, { expires: 1 });
+        localStorage.setItem("accessToken",response.data.access)
+        localStorage.setItem("userId",response.data.user_id)
+
 
         const savedToken = Cookies.get("accessToken");
         if (!savedToken) {
@@ -69,8 +69,8 @@ const Naver = () => {
         // console.log("저장 후 쿠키:", Cookies.get());
         // console.log("네이버 로그인 성공");
 
-        // navigate("/mypage");
-        navigate(response.data.redirect_url);
+        navigate(`/mypage/${response.data.user_id}`);
+
 
       } catch (error) {
         console.error("에러 메시지:", error.message);
