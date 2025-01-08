@@ -15,9 +15,9 @@ const Naver = () => {
       const state = getStateFromURL();
       const storedState = localStorage.getItem('naver_state');
 
-      // console.log("Code from URL:", code);
-      // console.log("State from URL:", state);
-      // console.log("Stored State:", storedState);
+      console.log("Code from URL:", code);
+      console.log("State from URL:", state);
+      console.log("Stored State:", storedState);
 
       if (!code || !state) {
         console.log("인증 코드 또는 상태값이 없습니다");

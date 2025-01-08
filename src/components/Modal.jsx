@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import axios from 'axios';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, users = [] }) => {
@@ -27,32 +28,29 @@ const Modal = ({ isOpen, onClose, users = [] }) => {
 
     const handleFollow = async (userId) => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/follow/', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    friend_id: userId
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to follow/unfollow user');
+            const accessToken = localStorage.getItem('accessToken');
+            if (!accessToken) {
+                throw new Error('Access token is missing');
             }
 
-            const data = await response.json();
-            
-            // 팔로우 상태 업데이트
-            setFollowing(prev => ({
+            // Axios를 사용하여 POST 요청 전송
+            const response = await axios.post(
+                'http://127.0.0.1:8000/follow/', // Django API 엔드포인트
+                { friend_id: userId }, // 요청 본문에 friend_id 전달
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`, // 인증 토큰 추가
+                    },
+                }
+            );
+
+            // 성공적으로 팔로우/언팔로우 상태 업데이트
+            setFollowing((prev) => ({
                 ...prev,
-                [userId]: !prev[userId]
+                [userId]: !prev[userId],
             }));
 
-            // 성공 메시지 표시 (선택사항)
-            console.log(data.message);
-
+            console.log(response.data.message); // 성공 메시지 출력
         } catch (error) {
             console.error('Error following/unfollowing user:', error);
         }

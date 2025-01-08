@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // React Router의 useNavigate 가져오기
+import Modal from './Modal'; // Modal 컴포넌트 가져오기
 import './UserList.css';
 
-const UserList = ({ onOpenModal }) => {
+const UserList = () => {
     const [users, setUsers] = useState([]); // 유저 리스트 상태
     const [error, setError] = useState(null); // 에러 상태
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 열림 상태
     const navigate = useNavigate(); // 페이지 이동을 위한 훅
 
     const handleAddUserClick = async () => {
@@ -28,6 +30,7 @@ const UserList = ({ onOpenModal }) => {
     
             const data = await response.json();
             setUsers(data); // 유저 리스트 업데이트
+            setIsModalOpen(true); // 모달 열기
         } catch (error) {
             console.error('Error fetching users:', error);
             setError('유저 정보를 불러오는 데 실패했습니다.');
@@ -67,6 +70,13 @@ const UserList = ({ onOpenModal }) => {
                     ))}
                 </div>
             </div>
+
+            {/* Modal 컴포넌트 */}
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                users={users} 
+            />
         </div>
     );
 };
