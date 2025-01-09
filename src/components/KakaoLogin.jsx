@@ -12,55 +12,49 @@ const Kakao = () => {
     const handleKakaoLogin = async () => {
       const code = getCodeFromURL();
       if (!code) {
-        console.log("인증 코드가 없습니다");
+        console.error("인증 코드가 없습니다.");
         return;
       }
 
       try {
+        // Django 서버로 인증 코드 전달
         const response = await axios.get(
-          `http://127.0.0.1:8000/accounts/kakao/callback/?code=${code}`,
-          { 
-            withCredentials: true
+          `http://127.0.0.1:8000/accounts/kakao/callback/`,
+          {
+            params: { code }, // 인증 코드를 쿼리 파라미터로 전달
+            withCredentials: true, // 쿠키를 포함한 요청
           }
         );
-      
-        // 응답 데이터 
-        // console.log("상태 코드:", response.status);
-        // console.log("데이터:", response.data);
 
-        if (!response.data.access_token) {
-          throw new Error('토큰을 받아오지 못했습니다.');
+        // 응답 데이터 처리
+        const { jwt_access_token, jwt_refresh_token, user_id } = response.data;
+
+        if (!jwt_access_token || !jwt_refresh_token) {
+          throw new Error("JWT 토큰을 받아오지 못했습니다.");
         }
 
-        // 쿠키 확인
-        // console.log("저장 전 쿠키:", Cookies.get());
-        
-        // 쿠키 설정
-        localStorage.setItem("accessToken",response.data.access)
-        localStorage.setItem("userId",response.data.user_id)
+        // JWT 토큰 및 사용자 정보 저장
+        localStorage.setItem("jwtAccessToken", jwt_access_token, { expires: 1 }); // 1일 유효기간
+        localStorage.setItem("jwtRefreshToken", jwt_refresh_token, { expires: 30 }); // 30일 유효기간
+        localStorage.setItem("userId", user_id);
 
-        const savedToken = Cookies.get("accessToken");
-        if (!savedToken) {
-          throw new Error("토큰 저장 실패");
-        }
-        
-        // console.log("저장 후 쿠키:", Cookies.get());
+        console.log("JWT Access Token:", jwt_access_token);
+        console.log("JWT Refresh Token:", jwt_refresh_token);
 
-        // 마이페이지로 이동
-        navigate(`/mypage/${response.data.user_id}`);
-      
+        // 마이페이지로 리다이렉트
+        navigate(`/mypage/${user_id}`);
       } catch (error) {
-        console.error("에러 메시지:", error.message);
-        // if (error.response) {
-        //   console.error("서버 응답:", error.response.data);
-        //   console.error("상태 코드:", error.response.status);
-        //   console.error("응답 헤더:", error.response.headers);
-        // } else if (error.request) {
-        //   console.error("요청 실패:", error.request);
-        // }
+        console.error("카카오 로그인 중 에러 발생:", error.message);
+        if (error.response) {
+          console.error("서버 응답:", error.response.data);
+          console.error("상태 코드:", error.response.status);
+          console.error("응답 헤더:", error.response.headers);
+        } else if (error.request) {
+          console.error("요청 실패:", error.request);
+        }
       }
     };
-  
+
     handleKakaoLogin();
   }, [navigate]);
 

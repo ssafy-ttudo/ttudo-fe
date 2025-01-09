@@ -11,7 +11,7 @@ const UserList = () => {
 
     const handleAddUserClick = async () => {
         try {
-            const accessToken = localStorage.getItem('accessToken');
+            const accessToken = localStorage.getItem('jwtAccessToken');
             if (!accessToken) {
                 throw new Error('Access token is missing');
             }
